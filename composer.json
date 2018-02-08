@@ -1,13 +1,9 @@
 {
     "name":"shopwarelabs/swag-media-azure",
-    "type": "shopware-frontend-plugin",
+    "type": "shopware-plugin",
     "description": "Shopware media adapter to store media files on Azure Blob Storage.",
     "comment": "league/flysystem and guzzlehttp/guzzle are provided by shopware",
     "keywords": ["shopware", "azure"],
-    "replace": {
-        "league/flysystem": "~1.0",
-        "guzzlehttp/guzzle": "~5.1"
-    },
     "config": {
     	"optimize-autoloader": true
 	},

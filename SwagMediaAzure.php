@@ -8,7 +8,10 @@
  */
 
 namespace SwagMediaAzure;
-require __DIR__. '/vendor/autoload.php';
+
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
+}
 
 use League\Flysystem\AdapterInterface;
 use Shopware\Components\Plugin;
@@ -17,6 +20,9 @@ use League\Flysystem\Azure\AzureAdapter;
 
 class SwagMediaAzure extends Plugin
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribedEvents()
     {
         return [
