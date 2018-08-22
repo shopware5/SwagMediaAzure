@@ -14,9 +14,9 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use Shopware\Components\Plugin;
-use WindowsAzure\Common\ServicesBuilder;
-use League\Flysystem\Azure\AzureAdapter;
 
 class SwagMediaAzure extends Plugin
 {
@@ -44,8 +44,8 @@ class SwagMediaAzure extends Plugin
             $config['apiKey']
         );
 
-        $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($endpoint);
+        $client = BlobRestProxy::createBlobService($endpoint);
 
-        return new AzureAdapter($blobRestProxy, $config['containerName']);
+        return new AzureBlobStorageAdapter($client, $config['containerName']);
     }
 }
